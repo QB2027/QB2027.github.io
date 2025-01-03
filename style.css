@@ -17,37 +17,43 @@ header {
 }
 
 h1 {
-  margin: 0;
+  margin: 10px 0;
+}
+
+p {
+  margin: 5px 0;
 }
 
 section {
   padding: 20px;
 }
 
-#file-list li, #announcement-list li {
-  color: #0066cc;
-  cursor: pointer;
-  text-decoration: underline;
+h2 {
+  color: #333;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
   margin: 10px 0;
 }
 
-#file-list li:hover, #announcement-list li:hover {
-  color: #004999;
-}
-
-.hidden {
-  display: none;
-}
-
-button {
-  margin-bottom: 20px;
-  background-color: #0066cc;
-  color: #fff;
-  padding: 10px;
-  border: none;
+li a {
+  color: #0066cc;
+  text-decoration: underline;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #004999;
+li a:hover {
+  color: #004999;
+}
+
+footer {
+  text-align: center;
+  background: #f4f4f4;
+  padding: 10px;
+  margin-top: 20px;
 }
