@@ -26,7 +26,7 @@ jobs:
         for file in data/markdown/*.md; do
           base=$(basename "$file" .md)
           date=$(head -n 1 "$file")
-          title=$(head -n 2 "$file" | tail -n 1 | sed 's/^# //'
+          title=$(head -n 2 "$file" | tail -n 1 | sed 's/^# //')
           pandoc --standalone --mathjax --metadata title="$title" "$file" -o "data/announcements/$base.html"
           if [ "$first" = true ]; then
             first=false
