@@ -1,3 +1,6 @@
+// GitHub Study 仓库的基础 URL
+const studyRepoBaseUrl = "https://raw.githubusercontent.com/Qianban2027/Study/main/";
+
 // 加载文件下载列表
 fetch('data/files.json')
   .then(response => response.json())
@@ -5,7 +8,7 @@ fetch('data/files.json')
     const fileList = document.getElementById('file-list');
     data.files.forEach(file => {
       const li = document.createElement('li');
-      const fileUrl = file.url ? file.url : `https://raw.githubusercontent.com/Qianban2027/Study/main/${file.path}`;
+      const fileUrl = file.url ? file.url : `${studyRepoBaseUrl}${file.path}`;
       li.innerHTML = `<a href="${fileUrl}" target="_blank" rel="noopener noreferrer">${file.name}</a>`;
       fileList.appendChild(li);
     });
@@ -27,7 +30,7 @@ fetch('data/announcements.json')
       const li = document.createElement('li');
       li.textContent = `${announcement.date} - ${announcement.title}`;
       li.addEventListener('click', () => {
-        // 显示加载状态
+        console.log(`正在加载公告文件：${announcement.file}`);
         markdownDiv.innerHTML = "加载中...";
         fetch(`data/announcements/${announcement.file}`)
           .then(response => {
@@ -42,6 +45,7 @@ fetch('data/announcements.json')
             contentDiv.classList.remove('hidden');
           })
           .catch(error => {
+            console.error(`加载公告内容失败：${error.message}`);
             markdownDiv.innerHTML = `<p style="color: red;">加载失败：${error.message}</p>`;
           });
       });

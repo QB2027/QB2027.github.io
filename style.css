@@ -3,6 +3,8 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
 }
 
 h1, h2 {
@@ -30,7 +32,7 @@ header h1 {
   color: #333;
 }
 
-/* 文件下载区样式 */
+/* 文件下载区和公告列表样式 */
 section {
   padding: 20px;
 }
@@ -44,17 +46,26 @@ ul {
   padding: 0;
 }
 
-li {
-  margin: 10px 0;
+/* 文件下载项样式 */
+#file-list li {
+  color: #0066cc; /* 蓝色字体 */
+  cursor: pointer; /* 鼠标变为手型 */
+  text-decoration: underline; /* 下划线样式 */
 }
 
-a {
-  text-decoration: none;
-  color: #0066cc;
+#file-list li:hover {
+  color: #004999; /* 鼠标悬停时颜色变深 */
 }
 
-a:hover {
-  text-decoration: underline;
+/* 公告列表项样式 */
+#announcement-list li {
+  color: #0066cc; /* 蓝色字体 */
+  cursor: pointer; /* 鼠标变为手型 */
+  text-decoration: underline; /* 下划线样式 */
+}
+
+#announcement-list li:hover {
+  color: #004999; /* 鼠标悬停时颜色变深 */
 }
 
 /* 公告内容样式 */
