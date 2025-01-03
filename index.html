@@ -6,6 +6,7 @@
   <title>钱班官网</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
@@ -24,7 +25,13 @@
   <!-- 公告区域 -->
   <section id="announcements">
     <h2>公告</h2>
-    <ul id="announcement-list"></ul>
+    <ul id="announcement-list">
+      <!-- 手动添加公告链接 -->
+      <li><a href="javascript:void(0);" data-file="data/markdown/announcement1.md">2024-01-01 - 公告1</a></li>
+      <li><a href="javascript:void(0);" data-file="data/markdown/announcement2.md">2024-01-02 - 公告2</a></li>
+      <li><a href="javascript:void(0);" data-file="data/markdown/latex-test.md">2024-01-03 - 测试Latex</a></li>
+      <li><a href="javascript:void(0);" data-file="data/markdown/maker.md">2024-01-04 - 网站制作者的笔记</a></li>
+    </ul>
     <div id="announcement-content" class="hidden">
       <button id="back-button">返回</button>
       <div id="markdown-content"></div>
