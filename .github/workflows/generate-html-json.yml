@@ -1,0 +1,53 @@
+name: Generate HTML and JSON
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y pandoc jq
+
+    - name: Convert Markdown to HTML
+      run: |
+        mkdir -p output/announcements
+        for file in data/announcements/*.md; do
+          base=$(basename "$file" .md)
+          pandoc "$file" -o "output/announcements/$base.html"
+        done
+
+    - name: Generate JSON file
+      run: |
+        echo '{ "announcements": [' > output/announcements.json
+        first=true
+        for file in output/announcements/*.html; do
+          base=$(basename "$file" .html)
+          date=$(grep -oP '\d{4}-\d{2}-\d{2}' "data/announcements/$base.md" || echo "unknown")
+          title=$(head -n 1 "data/announcements/$base.md" || echo "Untitled")
+          if [ "$first" = true ]; then
+            first=false
+          else
+            echo ',' >> output/announcements.json
+          fi
+          echo "{ \"title\": \"$title\", \"date\": \"$date\", \"file\": \"announcements/$base.html\" }" >> output/announcements.json
+        done
+        echo '] }' >> output/announcements.json
+
+    - name: Commit changes
+      run: |
+        cp -r output/* data/
+        git config user.name "GitHub Action"
+        git config user.email "action@github.com"
+        git add data/announcements/*.html data/announcements.json
+        git commit -m "Generate HTML and JSON from Markdown files"
+        git push
