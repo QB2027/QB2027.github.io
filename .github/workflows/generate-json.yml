@@ -32,9 +32,14 @@ jobs:
         echo '] }' >> data/announcements.json
 
     - name: Commit Announcements JSON
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
         git add data/announcements.json
-        git commit -m "Update announcements.json"
-        git push
+        if [ -n "$(git status --porcelain)" ]; then
+          git commit -m "Update announcements.json"
+          git push
+        else
+          echo "No changes to commit"
