@@ -2,5 +2,6 @@
   "announcements": [
     { "title": "test公告一", "date": "2025-01-01", "file": "announcement1.md" },
     { "title": "test公告二", "date": "2025-01-02", "file": "announcement2.md" }
+    { "title": "网站制作者的笔记", "date": "2025-01-03", "file": "maker.md" }
   ]
 }

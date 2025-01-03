@@ -1,6 +1,3 @@
-// GitHub Study 仓库的基础 URL
-const studyRepoBaseUrl = "https://raw.githubusercontent.com/Qianban2027/Study/main/";
-
 // 加载文件下载列表
 fetch('data/files.json')
   .then(response => response.json())
@@ -8,8 +5,7 @@ fetch('data/files.json')
     const fileList = document.getElementById('file-list');
     data.files.forEach(file => {
       const li = document.createElement('li');
-      // 检查是否有外部 URL，如果没有，则拼接 Study 仓库的基础路径
-      const fileUrl = file.url ? file.url : studyRepoBaseUrl + file.path;
+      const fileUrl = file.url ? file.url : `https://raw.githubusercontent.com/Qianban2027/Study/main/${file.path}`;
       li.innerHTML = `<a href="${fileUrl}" target="_blank" rel="noopener noreferrer">${file.name}</a>`;
       fileList.appendChild(li);
     });
@@ -31,15 +27,22 @@ fetch('data/announcements.json')
       const li = document.createElement('li');
       li.textContent = `${announcement.date} - ${announcement.title}`;
       li.addEventListener('click', () => {
+        // 显示加载状态
+        markdownDiv.innerHTML = "加载中...";
         fetch(`data/announcements/${announcement.file}`)
-          .then(response => response.text())
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`无法加载公告文件：${announcement.file}`);
+            }
+            return response.text();
+          })
           .then(markdown => {
-            markdownDiv.innerHTML = marked(markdown); // 使用 marked.js 解析 Markdown
+            markdownDiv.innerHTML = marked(markdown); // 使用 Marked.js 解析 Markdown
             announcementList.style.display = 'none';
             contentDiv.classList.remove('hidden');
           })
           .catch(error => {
-            console.error("加载公告内容时出错:", error);
+            markdownDiv.innerHTML = `<p style="color: red;">加载失败：${error.message}</p>`;
           });
       });
       announcementList.appendChild(li);
