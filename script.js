@@ -3,12 +3,7 @@ const studyRepoBaseUrl = "https://raw.githubusercontent.com/Qianban2027/Study/ma
 
 // 加载文件下载列表
 fetch('data/files.json')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error("无法加载文件下载列表文件");
-    }
-    return response.json();
-  })
+  .then(response => response.json())
   .then(data => {
     const fileList = document.getElementById('file-list');
     data.files.forEach(file => {
@@ -24,12 +19,7 @@ fetch('data/files.json')
 
 // 加载公告列表
 fetch('data/announcements.json')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error("无法加载公告列表文件");
-    }
-    return response.json();
-  })
+  .then(response => response.json())
   .then(data => {
     const announcementList = document.getElementById('announcement-list');
     const contentDiv = document.getElementById('announcement-content');
