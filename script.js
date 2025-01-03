@@ -26,20 +26,23 @@ fetch('data/announcements.json')
     // 遍历 JSON 数据，生成公告列表
     data.announcements.forEach(announcement => {
       const li = document.createElement('li');
-      li.textContent = `${announcement.date} - ${announcement.title}`;
+      li.innerHTML = `<a href="javascript:void(0);">${announcement.date} - ${announcement.title}</a>`;
       li.style.cursor = "pointer";
+
       li.addEventListener('click', () => {
+        console.log(`正在加载公告文件：${announcement.file}`);
         markdownDiv.innerHTML = "加载中...";
         fetch(`data/${announcement.file}`)
           .then(response => {
             if (!response.ok) {
-              throw new Error(`无法加载公告文件：${announcement.file}`);
+              throw new Error(`无法加载公告文件：${announcement.file} (HTTP ${response.status})`);
             }
             return response.text();
           })
           .then(markdown => {
-            markdownDiv.innerHTML = marked(markdown); // 使用 marked.js 渲染 Markdown
-            MathJax.typeset(); // 渲染 LaTeX 公式
+            console.log(`公告文件加载成功：${announcement.file}`);
+            markdownDiv.innerHTML = marked(markdown); // 渲染 Markdown
+            MathJax.typeset(); // 渲染 LaTeX
             announcementList.style.display = 'none';
             contentDiv.classList.remove('hidden');
           })
@@ -48,6 +51,7 @@ fetch('data/announcements.json')
             markdownDiv.innerHTML = `<p style="color: red;">加载失败：${error.message}</p>`;
           });
       });
+
       announcementList.appendChild(li);
     });
 
@@ -57,5 +61,5 @@ fetch('data/announcements.json')
     });
   })
   .catch(error => {
-    console.error("加载公告列表时出错:", error);
+    console.error("加载公告列表时出错：", error);
   });
