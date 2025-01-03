@@ -1,0 +1,9 @@
+{ "announcements": [
+{ "title": "公告1", "date": "2099-12-31", "file": "markdown/announcement1.md" }
+,
+{ "title": "公告2", "date": "1145-01-04", "file": "markdown/announcement2.md" }
+,
+{ "title": "测试Latex", "date": "2024-01-02", "file": "markdown/latex-test.md" }
+,
+{ "title": "网站制作者的笔记", "date": "2024-01-03", "file": "markdown/maker.md" }
+] }
