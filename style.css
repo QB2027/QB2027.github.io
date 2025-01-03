@@ -1,79 +1,38 @@
-/* 通用样式 */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f8f9fa;
-  color: #333;
 }
 
-h1, h2 {
-  margin: 0;
-  padding: 0;
-}
-
-/* Logo 样式 */
 header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f4f4f4;
+  text-align: center;
+  background: #f4f4f4;
   padding: 20px;
-  border-bottom: 1px solid #ccc;
 }
 
-header .logo {
+.logo {
   height: 60px;
-  margin-right: 15px;
+  display: block;
+  margin: 0 auto;
 }
 
-header h1 {
-  font-size: 24px;
-  color: #333;
+h1 {
+  margin: 0;
 }
 
-/* 文件下载区和公告列表样式 */
 section {
   padding: 20px;
 }
 
-#downloads, #announcements {
-  border-top: 1px solid #ccc;
+#file-list li, #announcement-list li {
+  color: #0066cc;
+  cursor: pointer;
+  text-decoration: underline;
+  margin: 10px 0;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-/* 文件下载项样式 */
-#file-list li {
-  color: #0066cc; /* 蓝色字体 */
-  cursor: pointer; /* 鼠标变为手型 */
-  text-decoration: underline; /* 下划线样式 */
-}
-
-#file-list li:hover {
-  color: #004999; /* 鼠标悬停时颜色变深 */
-}
-
-/* 公告列表项样式 */
-#announcement-list li {
-  color: #0066cc; /* 蓝色字体 */
-  cursor: pointer; /* 鼠标变为手型 */
-  text-decoration: underline; /* 下划线样式 */
-}
-
-#announcement-list li:hover {
-  color: #004999; /* 鼠标悬停时颜色变深 */
-}
-
-/* 公告内容样式 */
-#announcement-content {
-  margin-top: 20px;
-  border: 1px solid #ccc;
-  padding: 20px;
-  background-color: #f9f9f9;
+#file-list li:hover, #announcement-list li:hover {
+  color: #004999;
 }
 
 .hidden {
@@ -81,12 +40,12 @@ ul {
 }
 
 button {
+  margin-bottom: 20px;
   background-color: #0066cc;
-  color: white;
+  color: #fff;
+  padding: 10px;
   border: none;
-  padding: 10px 20px;
   cursor: pointer;
-  font-size: 16px;
 }
 
 button:hover {
