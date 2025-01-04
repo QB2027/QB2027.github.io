@@ -6,61 +6,61 @@ body {
     padding: 0;
     background-color: #f4f4f9;
     color: #333;
-  }
-  
-  /* 页头样式 */
-  header {
+}
+
+/* 页头样式 */
+header {
     background: #0078d7;
     color: white;
     padding: 1rem 0;
     text-align: center;
-  }
-  
-  header .logo {
+}
+
+header .logo {
     display: flex;
     justify-content: left;
     align-items: center;
     gap: 1rem;
-  }
-  
-  header .logo img {
+}
+
+header .logo img {
     height: 150px;
-  }
-  
-  header h1 {
+}
+
+header h1 {
     margin: 0;
-  }
-  
-  /* 主体内容样式 */
-  main {
+}
+
+/* 主体内容样式 */
+main {
     padding: 1rem;
-  }
-  
-  h2 {
+}
+
+h2 {
     color: #0078d7;
     margin-top: 1rem;
-  }
-  
-  ul {
+}
+
+ul {
     list-style-type: none;
     padding: 0;
-  }
-  
-  ul li {
+}
+
+ul li {
     margin-bottom: 0.5rem;
-  }
-  
-  ul li a {
+}
+
+ul li a {
     text-decoration: none;
     color: #0078d7;
-  }
-  
-  ul li a:hover {
+}
+
+ul li a:hover {
     text-decoration: underline;
-  }
-  
-  /* 页脚样式 */
-  footer {
+}
+
+/* 页脚样式 */
+footer {
     background: #333;
     color: white;
     text-align: center;
@@ -68,5 +68,4 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
-  }
-  
+}
