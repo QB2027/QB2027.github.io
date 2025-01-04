@@ -3,8 +3,8 @@ name: Convert TextBundle to HTML
 on:
   push:
     branches:
-      - main   # 监听 main 分支
-  workflow_dispatch:  # 手动触发工作流
+      - main
+  workflow_dispatch:
 
 jobs:
   build:
@@ -24,12 +24,14 @@ jobs:
         pip install -r requirements.txt
 
     - name: Convert TextBundle to HTML
+      working-directory: ./  # 设置工作目录为项目根目录
       run: |
         python scripts/main.py
 
     - name: Commit changes
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      working-directory: ./  # 设置工作目录为项目根目录
       run: |
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"

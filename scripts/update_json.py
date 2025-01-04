@@ -1,5 +1,3 @@
-# scripts/update_json.py
-
 import os
 import json
 
