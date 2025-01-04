@@ -24,21 +24,20 @@ jobs:
         pip install -r requirements.txt
 
     - name: Convert TextBundle to HTML
-      working-directory: ./  # 设置工作目录为项目根目录
       run: |
         python scripts/main.py
 
     - name: Commit changes
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      working-directory: ./  # 设置工作目录为项目根目录
       run: |
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
-        git add data/notices/*/index.html data/notices.json
-        git rm --cached $(git ls-files --deleted data/notices/*/index.html) || true
+        git add data/notices/*/index.html data/notices.json || true
+        git ls-files --deleted | xargs -r git rm || true
         if [ -n "$(git status --porcelain)" ]; then
           git commit -m "Automatically convert TextBundle to HTML and update JSON"
           git push
         else
           echo "No changes to commit"
+        fi
