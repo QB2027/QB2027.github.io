@@ -1,9 +1,0 @@
-{ "announcements": [
-{ "title": "公告1", "date": "2099-12-31", "file": "data/announcements/announcement1.html" }
-,
-{ "title": "公告2", "date": "1145-01-04", "file": "data/announcements/announcement2.html" }
-,
-{ "title": "测试Latex", "date": "2024-01-02", "file": "data/announcements/latex-test.html" }
-,
-{ "title": "网站制作者的笔记", "date": "2024-01-03", "file": "data/announcements/maker.html" }
-] }
