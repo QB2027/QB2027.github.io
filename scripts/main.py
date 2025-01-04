@@ -1,6 +1,7 @@
 import os
-from scripts.convert import convert_textbundle_to_html
-from scripts.update_json import update_notices_json
+from convert import convert_textbundle_to_html
+from update_json import update_notices_json
+
 
 # 定义目录
 TEXTBUNDLE_DIR = "data/textbundle"
