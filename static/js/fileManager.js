@@ -13,11 +13,11 @@ function renderFileTree(files, parentElement, parentRepo = "", parentBranch = "m
         const li = document.createElement('li');
 
         if (file.children) {
-            const ul = document.createElement('ul');
-            renderFileTree(file.children, ul, file.repo || parentRepo, file.branch || parentBranch);
-            li.appendChild(ul);
+            // 如果有子文件，递归渲染子文件
+            renderFileTree(file.children, parentElement, file.repo || parentRepo, file.branch || parentBranch);
         } else if (file.path) {
             // 仓库文件：生成原始下载和镜像下载链接
+            const repo = parentRepo;
             const branch = file.branch || parentBranch;
             const rawLink = `https://raw.githubusercontent.com/${repo}/${branch}/${file.path}`;
             const mirrorLink = `https://ghproxy.com/https://raw.githubusercontent.com/${repo}/${branch}/${file.path}`;
