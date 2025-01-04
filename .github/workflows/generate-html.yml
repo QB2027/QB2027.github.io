@@ -21,12 +21,12 @@ jobs:
 
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
         pip install -r requirements.txt
 
     - name: Convert TextBundle to HTML
+      working-directory: ./scripts
       run: |
-        python main.py  # 保证你的 main.py 文件位于仓库根目录或调整路径
+        python main.py
 
     - name: Commit changes
       env:
@@ -34,7 +34,7 @@ jobs:
       run: |
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
-        git add data/notices/*/index.html data/notices.json || true
+        git add ../data/notices/**/*.html ../data/notices.json || true
         git ls-files --deleted | xargs -r git rm || true
         if [ -n "$(git status --porcelain)" ]; then
           git commit -m "Automatically convert TextBundle to HTML and update JSON"
