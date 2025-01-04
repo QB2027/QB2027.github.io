@@ -2,6 +2,7 @@ import os
 import markdown
 import json
 from pathlib import Path
+import shutil
 
 
 def load_info_json(bundle_dir):
@@ -97,12 +98,24 @@ def save_html(output_path, html):
     print(f"Generated HTML: {output_file}")
 
 
+def copy_assets(bundle_dir, output_dir):
+    """
+    复制 assets 文件夹及其内容到 HTML 输出目录。
+    """
+    assets_dir = bundle_dir / "assets"
+    if assets_dir.exists() and assets_dir.is_dir():
+        target_assets_dir = output_dir / "assets"
+        shutil.copytree(assets_dir, target_assets_dir, dirs_exist_ok=True)
+        print(f"Copied assets from {assets_dir} to {target_assets_dir}")
+
+
 def convert_textbundle_to_html(textbundle_path, output_path):
     """
     主逻辑：将单个 TextBundle 文件转换为 HTML 文件。
     """
     try:
         bundle_dir = Path(textbundle_path)
+        output_dir = Path(output_path).parent
 
         # 加载 info.json
         info = load_info_json(bundle_dir)
@@ -123,6 +136,9 @@ def convert_textbundle_to_html(textbundle_path, output_path):
 
         # 保存 HTML
         save_html(output_path, html)
+
+        # 复制 assets 文件夹
+        copy_assets(bundle_dir, output_dir)
 
     except Exception as e:
         print(f"Error processing {textbundle_path}: {e}")
