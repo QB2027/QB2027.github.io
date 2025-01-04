@@ -1,14 +1,14 @@
 {
     "notices": [
         {
-            "title": "网站制作者的笔记",
-            "date": "2024-01-03",
-            "file": "/Users/jason/Desktop/qianban2027.github.io/data/notices/maker/index.html"
-        },
-        {
             "title": "LaTeX Test",
             "date": "2024-01-03",
-            "file": "/Users/jason/Desktop/qianban2027.github.io/data/notices/latex-test/index.html"
+            "file": "/home/runner/work/qianban2027.github.io/qianban2027.github.io/data/notices/latex-test/index.html"
+        },
+        {
+            "title": "网站制作者的笔记",
+            "date": "2024-01-03",
+            "file": "/home/runner/work/qianban2027.github.io/qianban2027.github.io/data/notices/maker/index.html"
         }
     ]
 }
