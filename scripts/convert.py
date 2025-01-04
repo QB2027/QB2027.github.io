@@ -1,22 +1,30 @@
-# scripts/convert.py
-
-import os
-import json
-from markdown import markdown
-
 def convert_textbundle_to_html(textbundle_path, output_path):
     """
     将单个 textbundle 文件转换为 HTML 并保存到指定位置。
     """
+    import os
+    import json
+
     # 加载 info.json
     info_path = os.path.join(textbundle_path, "info.json")
+    text_md_path = os.path.join(textbundle_path, "text.md")
+    text_markdown_path = os.path.join(textbundle_path, "text.markdown")
+
+    # 检查 text.md 或 text.markdown 是否存在
+    if os.path.exists(text_md_path):
+        text_path = text_md_path
+    elif os.path.exists(text_markdown_path):
+        text_path = text_markdown_path
+    else:
+        print(f"Warning: Missing text.md or text.markdown in {textbundle_path}. Skipping...")
+        return
+
     with open(info_path, "r", encoding="utf-8") as f:
         info = json.load(f)
     title = info.get("title", "无标题")
     date = info.get("date", "未知日期")
 
-    # 加载 text.md
-    text_path = os.path.join(textbundle_path, "text.md")
+    # 加载公告内容
     with open(text_path, "r", encoding="utf-8") as f:
         content = f.read()
 
