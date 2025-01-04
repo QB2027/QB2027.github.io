@@ -1,10 +1,11 @@
+import os
+import json
+from markdown import markdown  # 确保正确导入 markdown
+
 def convert_textbundle_to_html(textbundle_path, output_path):
     """
     将单个 textbundle 文件转换为 HTML 并保存到指定位置。
     """
-    import os
-    import json
-
     # 加载 info.json
     info_path = os.path.join(textbundle_path, "info.json")
     text_md_path = os.path.join(textbundle_path, "text.md")

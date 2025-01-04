@@ -1,5 +1,3 @@
-# .github/workflows/generate-html.yml
-
 name: Convert TextBundle to HTML
 
 on:
@@ -23,7 +21,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install markdown
+        pip install -r requirements.txt
 
     - name: Convert TextBundle to HTML
       run: |
@@ -35,7 +33,7 @@ jobs:
       run: |
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
-        git add data/notices/*/index.html data/notices.json data/files.json
+        git add data/notices/*/index.html data/notices.json
         git rm --cached $(git ls-files --deleted data/notices/*/index.html) || true
         if [ -n "$(git status --porcelain)" ]; then
           git commit -m "Automatically convert TextBundle to HTML and update JSON"
