@@ -1,14 +1,14 @@
 {
     "notices": [
         {
-            "title": "LaTeX Test",
-            "date": "2024-01-03",
-            "file": "data/notices/latex-test/index.html"
-        },
-        {
             "title": "网站制作者的笔记",
             "date": "2024-01-03",
-            "file": "data/notices/maker/index.html"
+            "file": "/Users/jason/Desktop/qianban2027.github.io/data/notices/maker/index.html"
+        },
+        {
+            "title": "LaTeX Test",
+            "date": "2024-01-03",
+            "file": "/Users/jason/Desktop/qianban2027.github.io/data/notices/latex-test/index.html"
         }
     ]
 }

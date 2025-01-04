@@ -3,12 +3,12 @@ from convert import convert_textbundle_to_html
 from update_json import update_notices_json
 
 # 获取脚本所在的绝对路径
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # 定义目录
-TEXTBUNDLE_DIR = os.path.join(BASE_DIR, "../data/textbundle")
-NOTICES_DIR = os.path.join(BASE_DIR, "../data/notices")
-NOTICES_JSON = os.path.join(BASE_DIR, "../data/notices.json")
+TEXTBUNDLE_DIR = os.path.join(BASE_DIR, "data/textbundle")
+NOTICES_DIR = os.path.join(BASE_DIR, "data/notices")
+NOTICES_JSON = os.path.join(BASE_DIR, "data/notices.json")
 
 # 创建 Notices 目录（如果不存在）
 os.makedirs(NOTICES_DIR, exist_ok=True)

@@ -21,6 +21,7 @@ jobs:
 
     - name: Install dependencies
       run: |
+        pip install --upgrade pip
         pip install -r scripts/requirements.txt
 
     - name: Convert TextBundle to HTML
@@ -30,7 +31,6 @@ jobs:
 
     - name: Commit changes
       run: |
-        cd $GITHUB_WORKSPACE  # 确保切换到存储库根目录
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
         git add data/notices/**/*.html data/notices.json || true

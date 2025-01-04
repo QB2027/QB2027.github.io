@@ -29,21 +29,31 @@ def convert_textbundle_to_html(textbundle_path, output_path):
     with open(text_path, "r", encoding="utf-8") as f:
         content = f.read()
 
-    # Markdown 转 HTML，支持换行和扩展语法
+    # Markdown 转 HTML
     html_body = markdown(content, extensions=["extra", "nl2br", "toc", "fenced_code"])
 
-    # 包装 HTML 页面
+    # 添加 MathJax 支持和页面结构
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
+    <script>
+      MathJax = {{
+        tex: {{
+          inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
+          displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
+        }},
+        svg: {{
+          fontCache: 'global'
+        }}
+      }};
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         body {{ font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }}
         h1, h2, h3 {{ color: #0078d7; }}
-        p {{ margin: 10px 0; }}
         pre, code {{ background: #f4f4f4; padding: 5px; border-radius: 5px; }}
         table {{ border-collapse: collapse; width: 100%; }}
         table, th, td {{ border: 1px solid #ddd; padding: 8px; }}
