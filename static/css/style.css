@@ -18,13 +18,13 @@ body {
   
   header .logo {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     gap: 1rem;
   }
   
   header .logo img {
-    height: 100px;
+    height: 200px;
   }
   
   header h1 {
