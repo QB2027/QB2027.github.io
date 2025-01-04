@@ -1,0 +1,55 @@
+# Python 缓存文件
+__pycache__/
+*.py[cod]
+*.pyo
+
+# 虚拟环境
+env/
+venv/
+*.env
+
+# 系统文件
+.DS_Store
+
+# 日志和临时文件
+*.log
+*.tmp
+*.bak
+*.swp
+*.lock
+
+# IDE/编辑器配置文件
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Node.js（如引入前端构建工具）
+node_modules/
+
+# 静态文件编译输出
+static/js/*.min.js
+static/css/*.min.css
+
+# 自动生成的公告 HTML 文件
+data/notices/*/index.html
+
+# 自动生成的 JSON 文件
+data/notices.json
+data/files.json
+
+# 公告 HTML 文件夹中的资源文件
+data/notices/*/assets/
+
+# 构建输出目录（如果引入构建流程）
+build/
+dist/
+
+# 临时和备份文件
+*.bak
+*.tmp
+*.backup
+
+# 安全敏感文件
+*.key
+*.pem
