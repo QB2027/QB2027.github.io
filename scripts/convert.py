@@ -1,6 +1,6 @@
 import os
 import json
-from markdown import markdown  # 确保正确导入 markdown
+from markdown import markdown
 
 def convert_textbundle_to_html(textbundle_path, output_path):
     """
@@ -29,22 +29,28 @@ def convert_textbundle_to_html(textbundle_path, output_path):
     with open(text_path, "r", encoding="utf-8") as f:
         content = f.read()
 
-    # Markdown 转 HTML
-    html_body = markdown(content, extensions=["extra", "toc", "tables", "fenced_code"])
+    # Markdown 转 HTML，支持换行和扩展语法
+    html_body = markdown(content, extensions=["extra", "nl2br", "toc", "fenced_code"])
 
-    # 处理资源路径
-    assets_path = os.path.join(textbundle_path, "assets")
-    if os.path.exists(assets_path):
-        html_body = html_body.replace("](assets/", f"]({assets_path}/")
-
-    # 添加 HTML 页面结构
+    # 包装 HTML 页面
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{date} - {title}</title>
+    <title>{title}</title>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {{ font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }}
+        h1, h2, h3 {{ color: #0078d7; }}
+        p {{ margin: 10px 0; }}
+        pre, code {{ background: #f4f4f4; padding: 5px; border-radius: 5px; }}
+        table {{ border-collapse: collapse; width: 100%; }}
+        table, th, td {{ border: 1px solid #ddd; padding: 8px; }}
+        th {{ background-color: #f2f2f2; }}
+        a {{ color: #0078d7; text-decoration: none; }}
+        a:hover {{ text-decoration: underline; }}
+    </style>
 </head>
 <body>
     <h1>{title}</h1>

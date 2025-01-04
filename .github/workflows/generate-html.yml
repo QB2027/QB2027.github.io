@@ -21,11 +21,12 @@ jobs:
 
     - name: Install dependencies
       run: |
+        python -m pip install --upgrade pip
         pip install -r requirements.txt
 
     - name: Convert TextBundle to HTML
       run: |
-        python scripts/main.py
+        python main.py  # 保证你的 main.py 文件位于仓库根目录或调整路径
 
     - name: Commit changes
       env:
@@ -40,4 +41,3 @@ jobs:
           git push
         else
           echo "No changes to commit"
-        fi
