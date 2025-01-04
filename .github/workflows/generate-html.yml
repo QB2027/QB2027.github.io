@@ -37,8 +37,9 @@ jobs:
       run: |
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
-        # 添加生成的 HTML 和 JSON 文件到 Git 暂存区
-        git add data/notices/*/index.html data/notices.json || true
+        # 强制添加生成的 HTML 和 JSON 文件
+        git add -f "data/notices/*" || true
+        git add -f "data/notices.json" || true
         # 移除已删除的文件
         git ls-files --deleted | xargs -r git rm || true
         # 如果有更改，则提交
