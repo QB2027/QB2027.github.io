@@ -8,7 +8,7 @@
     },
     {
       "repo": "hsefz-Corgi/corgi-recorder", "branch": "dev", "children": [
-        { "name": "仅供测试", "path": "corgi.ico" }
+        { "name": "仅供Corgi测试", "path": "corgi.ico" }
       ]
     },
     { "name": "分数线test(外部url)", "url": "https://www.shmeea.edu.cn/download/20240715/1.pdf" }
