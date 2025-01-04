@@ -6,6 +6,11 @@
             "file": "data/notices/test/index.html"
         },
         {
+            "title": "期末考试公告",
+            "date": "2024-01-03",
+            "file": "data/notices/期末考试公告/index.html"
+        },
+        {
             "title": "LaTeX Test",
             "date": "2024-01-03",
             "file": "data/notices/latex-test/index.html"
