@@ -7,4 +7,4 @@ def write_json_file(output_file, notices):
     :param notices: 公告列表
     """
     with open(output_file, "w", encoding="utf-8") as f:
-        json.dump({"notices": notices}, f, ensure_ascii=False, indent=4)
+        json.dump({"notices": notices}, f, ensure_ascii=False, indent=2)
