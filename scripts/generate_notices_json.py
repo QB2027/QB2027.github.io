@@ -1,6 +1,7 @@
 import os
 from notices.processor import process_namespace
 from notices.writer import write_json_file
+from notices.sorter import sort_notices
 
 # 定义基础路径
 BASE_DIR = "data/notices"
@@ -11,12 +12,13 @@ def generate_notices_json():
     notices = []
     for namespace in os.listdir(BASE_DIR):
         namespace_path = os.path.join(BASE_DIR, namespace)
-        # 检查是否为目录并处理命名空间
+        # 检查是否为有效目录
         if os.path.isdir(namespace_path):
             notices.extend(process_namespace(BASE_DIR, namespace))
     
-    # 写入 JSON 文件
-    write_json_file(OUTPUT_FILE, notices)
+    # 按时间倒序、标题排序
+    sorted_notices = sort_notices(notices)
+    write_json_file(OUTPUT_FILE, sorted_notices)
     print(f"JSON file has been generated at {OUTPUT_FILE}")
 
 if __name__ == "__main__":

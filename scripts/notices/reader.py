@@ -1,4 +1,5 @@
 import os
+import json
 
 def get_html_files(namespace_path):
     """
@@ -27,3 +28,19 @@ def is_valid_namespace(namespace_path, ignored_dirs=None):
     # 检查是否为隐藏目录或指定忽略目录
     namespace_name = os.path.basename(namespace_path)
     return os.path.isdir(namespace_path) and not namespace_name.startswith(".") and namespace_name not in ignored_dirs
+
+def read_config(config_path):
+    """
+    读取并解析配置文件 config.json
+    :param config_path: 配置文件路径
+    :return: 配置内容字典或 None（如果读取失败）
+    """
+    if not os.path.exists(config_path):
+        return None
+    
+    try:
+        with open(config_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except json.JSONDecodeError:
+        print(f"Error parsing JSON file: {config_path}")
+        return None
