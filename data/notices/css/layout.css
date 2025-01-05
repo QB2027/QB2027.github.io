@@ -1,0 +1,31 @@
+/* 主内容容器样式 */
+.content {
+    font-size: 1em;
+    line-height: 1.8;
+    margin-bottom: 1.5em;
+}
+
+/* 通用图片样式 */
+img {
+    max-width: 100%;          /* 图片宽度不超过容器宽度 */
+    height: auto;             /* 保持图片宽高比 */
+    display: block;           /* 图片独占一行 */
+    margin: 20px auto;        /* 图片垂直间距，水平居中 */
+    border-radius: 5px;       /* 添加圆角效果 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+}
+
+
+/* <figure> 样式：图片与说明容器 */
+figure {
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* <figcaption> 样式：图片说明文字 */
+figcaption {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 10px;
+    text-align: center;
+}

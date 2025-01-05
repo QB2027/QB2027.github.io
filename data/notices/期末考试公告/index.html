@@ -1,39 +1,55 @@
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>期末考试公告</title>
-        <script>
-            MathJax = {
-                tex: {
-                    inlineMath: [['$', '$'], ['\\(', '\\)']],
-                    displayMath: [['$$', '$$'], ['\\[', '\\]']]
-                },
-                svg: {
-                    fontCache: 'global'
-                }
-            };
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-        <style>
-            body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
-            h1, h2, h3 { color: #0078d7; }
-            pre, code { background: #f4f4f4; padding: 5px; border-radius: 5px; }
-            table { border-collapse: collapse; width: 100%; }
-            table, th, td { border: 1px solid #ddd; padding: 8px; }
-            th { background-color: #f2f2f2; }
-            a { color: #0078d7; text-decoration: none; }
-            a:hover { text-decoration: underline; }
-        </style>
-    </head>
-    <body>
-        <a href="/index.html" style="display: block; margin-bottom: 1em;">← 返回首页</a>
-        <h1>期末考试公告</h1>
-        <p><em>2024-01-03</em></p>
-        <div><h2>公告：期末考试日程如下，请各位知晓。</h2>
-<p><img src="assets/17359962243698.jpg" width = "60%" /></p></div>
-    </body>
-    </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>期末考试公告</title>
     
+    <!-- 引入基础样式：全局布局和基础功能 -->
+    <link rel="stylesheet" href="../css/base.css">
+    
+    <!-- 引入排版样式：标题和段落等文字样式 -->
+    <link rel="stylesheet" href="../css/typography.css">
+    
+    <!-- 引入布局样式：内容容器和图片布局样式 -->
+    <link rel="stylesheet" href="../css/layout.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <!-- 返回首页链接 -->
+        <a href="/index.html" class="back-link">← 返回首页</a>
+    </nav>
+
+    <!-- 页面标题区域 -->
+    <header>
+        <!-- 主标题 -->
+        <h1 class="title">期末考试公告</h1>
+        <!-- 日期 -->
+        <p class="date">2024-01-03</p>
+    </header>
+
+    <!-- 主内容区域 -->
+    <main class="content">
+        <!-- 公告正文 -->
+        <p>公告：期末考试日程如下，请各位知晓。</p>
+
+        <!-- 考试日程图片 -->
+        <figure>
+            <img src="assets/kaoshi.jpg" alt="2024-2025学年第一学期期末考试日程表">
+            <figcaption>2024-2025学年第一学期期末考试日程表</figcaption>
+        </figure>
+
+        <!-- 补充考试日程说明 -->
+        <section>
+            <h2>考试安排说明</h2>
+            <p>以下是本次期末考试的安排，请各位同学准时参加：</p>
+            <ul>
+                <li>考生需提前15分钟到达考场，并携带准考证和身份证。</li>
+                <li>考试期间禁止携带任何电子设备进入考场。</li>
+                <li>考试结束后，请遵守秩序有序离场。</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

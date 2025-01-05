@@ -1,0 +1,72 @@
+/* 全局样式 */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    background-color: #f9f9f9; /* 浅灰背景 */
+    color: #333; /* 深灰文字 */
+}
+
+/* 链接样式 */
+a {
+    color: #0078d7; /* 蓝色文字 */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* 返回首页链接 */
+.back-link {
+    display: block;
+    margin-bottom: 1em;
+    font-size: 1em;
+}
+
+/* 标题样式 */
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #0078d7; /* 蓝色标题 */
+}
+
+/* 日期样式 */
+.date {
+    font-size: 0.9em;
+    color: #666; /* 浅灰日期 */
+    margin-bottom: 20px;
+}
+
+/* 内容容器 */
+.content {
+    font-size: 1em;
+    line-height: 1.8;
+}
+
+ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+/* 表格样式 */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd; /* 浅灰边框 */
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2; /* 浅灰表头背景 */
+    color: #333; /* 表头文字颜色 */
+}

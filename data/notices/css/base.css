@@ -1,0 +1,32 @@
+/* 全局基础样式 */
+body {
+    font-family: Arial, sans-serif; /* 全局字体样式 */
+    line-height: 1.6;               /* 全局行高 */
+    margin: 0;                      /* 清除默认外边距 */
+    padding: 20px;                  /* 页面内边距 */
+    background-color: #f9f9f9;      /* 背景颜色 */
+    color: #333;                    /* 全局文字颜色 */
+}
+
+/* 全局链接样式 */
+a {
+    color: #0078d7;                 /* 默认链接颜色 */
+    text-decoration: none;          /* 去除下划线 */
+}
+
+a:hover {
+    text-decoration: underline;     /* 悬停时显示下划线 */
+}
+
+/* 返回链接样式 */
+.back-link {
+    display: block;                 /* 独占一行 */
+    margin-bottom: 1.5em;           /* 下方间距 */
+    font-size: 1em;                 /* 字体大小 */
+    color: #0078d7;                 /* 使用全局链接颜色 */
+    text-decoration: none;          /* 去除下划线 */
+}
+
+.back-link:hover {
+    text-decoration: underline;     /* 悬停时显示下划线 */
+}

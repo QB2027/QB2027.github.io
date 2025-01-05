@@ -42,51 +42,73 @@
 
 ---
 
-### TextBundle 管理
+### 公告展示管理
 
-#### TextBundle 文件结构与内容
+#### 文件结构与内容
 
-- 每个公告内容可以用 TextBundle 格式定义，包含 `info.json` 和 `text.markdown` 文件。
-- 公告标题需写在 Markdown 文件的首行大标题中，同时保留 `info.json` 中的标题用于超链接表示。
+- 每个公告内容可以用 HTML 格式书写。
+- 注意统一样式。
 
 **文件结构：**
 ```
-textbundle
-├── info.json
-└── text.markdown
+命名空间
+├── config.json
+└── index.html
 ```
 
-**`info.json` 模板：**
+##### **`config.json` 模板：**
 ```json
 {
   "title": "<公告标题>",
   "date": "<公告日期>"
 }
 ```
+##### **`index.html` 模版：**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面标题</title>
+    
+    <!-- 基础样式文件，提供全局的布局和基础功能样式 -->
+    <link rel="stylesheet" href="../css/base.css">
+    
+    <!-- 排版样式文件，提供标题和段落等文字的样式 -->
+    <link rel="stylesheet" href="../css/typography.css">
+</head>
+<body>
+    <!-- 返回首页链接 -->
+    <nav>
+        <a href="/index.html" class="back-link">← 返回首页</a>
+    </nav>
 
-**`text.markdown` 模板：**
-```markdown
-# <公告标题>
+    <!-- 页面标题 -->
+    <header>
+        <h1 class="title">页面标题</h1>
+    </header>
 
-<公告内容>
+    <!-- 页面正文 -->
+    <main class="content">
+        <p>这是正文内容。</p>
+    </main>
+</body>
+</html>
 ```
 
-**注意：**
-- Markdown 文件首行的 `#` 大标题会显示为 HTML 中的大字体标题，同时作为页面 `<title>` 内容。
-- `info.json` 的 `title` 用作外部链接的显示文字。
-- 公告内容紧跟标题，支持普通文本和 Markdown 格式。
-- 生成的 HTML 文件将包含一个返回按钮，便于用户返回上一页面。
+##### **`CSS` 使用说明：**
+见[CSS使用说明](docs/css-guidelines.md)
 
+**注意：**
+- `HTML` 文件将包含一个返回按钮，便于用户返回上一页面。
+- 使用 `CSS` 统一样式
 ---
 
 ## 自动化脚本与部署
 
 无需本地运行，自动化脚本会在推送到主分支后自动运行以下功能：
-
-1. 转换 `textbundle` 为 HTML 文件。
-   - 将 Markdown 文件的首行大标题作为 HTML 主标题和页面 `<title>`。
-   - 在 HTML 文件中添加返回按钮。
-2. 更新公告 JSON 文件（`notices.json`）。
+- 更新公告 JSON 文件（`notices.json`）。
 
 ---
 
