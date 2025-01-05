@@ -13,7 +13,7 @@ def sort_notices(notices):
             date = datetime.strptime(date_str, "%Y-%m-%d")
         except ValueError:
             date = datetime.min  # 无效日期设置为最小时间
-        # 返回排序键：时间升序、标题升序
-        return (date.timestamp(), notice.get("title", ""))
+        # 返回排序键：时间降序、标题升序
+        return (-date.timestamp(), notice.get("title", ""))
 
     return sorted(notices, key=sort_key)
