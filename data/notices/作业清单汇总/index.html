@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正在跳转...</title>
+    
+    <!-- 引入全局基础样式 -->
+    <link rel="stylesheet" href="../css/base.css">
+    <!-- 引入排版样式 -->
+    <link rel="stylesheet" href="../css/typography.css">
+</head>
+<body>
+    <!-- 返回首页链接 -->
+    <nav>
+        <a href="/index.html" class="back-link">← 返回首页</a>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header>
+        <h1 class="title">正在跳转到WPS</h1>
+    </header>
+
+    <!-- 页面正文 -->
+    <main class="content">
+        <p>正在跳转到WPS。如果没有自动跳转，请点击 <a id="manualLink">这里</a>。</p>
+    </main>
+
+    <!-- 自动跳转脚本 -->
+    <script>
+        const link = "https://kdocs.cn/l/cuVpx95FsH7z";
+        document.getElementById("manualLink").href = link; // 设置手动跳转链接
+        window.location.href = link; // 自动跳转
+    </script>
+</body>
+</html>
