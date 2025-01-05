@@ -1,5 +1,5 @@
 import os
-from notices.reader import is_valid_namespace
+from notices.reader import is_valid_namespace, read_config
 
 def process_namespace(base_dir, namespace):
     """
@@ -14,10 +14,15 @@ def process_namespace(base_dir, namespace):
     if not is_valid_namespace(namespace_path):
         return []
 
-    # 模拟读取 config.json 文件或直接生成默认公告信息
+    # 读取 config.json 文件
     config_file = os.path.join(namespace_path, "config.json")
-    return [{
-        "title": namespace,  # 假设标题直接取命名空间名
-        "date": "2024-01-03",  # 模拟日期
-        "file": f"data/notices/{namespace}/index.html"
-    }]
+    config = read_config(config_file)
+
+    # 获取配置文件中的标题和日期信息
+    if config:
+        return [{
+            "title": config.get("title", "无标题"),
+            "date": config.get("date", "未知日期"),  # 获取日期字段
+            "file": f"data/notices/{namespace}/index.html"
+        }]
+    return []

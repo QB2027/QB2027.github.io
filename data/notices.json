@@ -1,19 +1,19 @@
 {
     "notices": [
         {
-            "title": "maker",
-            "date": "2024-01-03",
-            "file": "data/notices/maker/index.html"
-        },
-        {
-            "title": "微信钱班公告",
-            "date": "2024-01-03",
+            "title": "华二紫竹钱学森学院新篇章：初中首届毕业，高中首届启航",
+            "date": "2024-09-04",
             "file": "data/notices/微信钱班公告/index.html"
         },
         {
             "title": "期末考试公告",
-            "date": "2024-01-03",
+            "date": "2025-01-03",
             "file": "data/notices/期末考试公告/index.html"
+        },
+        {
+            "title": "网站制作者的笔记",
+            "date": "2025-01-03",
+            "file": "data/notices/maker/index.html"
         }
     ]
 }
