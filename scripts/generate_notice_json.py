@@ -4,7 +4,7 @@ from notices.writer import write_json_file
 
 # 定义基础路径
 BASE_DIR = "data/notices"
-OUTPUT_FILE = "data/notice.json"
+OUTPUT_FILE = "data/notices.json"
 
 def generate_notice_json():
     """生成公告 JSON 文件"""
