@@ -6,7 +6,7 @@ from notices.writer import write_json_file
 BASE_DIR = "data/notices"
 OUTPUT_FILE = "data/notices.json"
 
-def generate_notice_json():
+def generate_notices_json():
     """生成公告 JSON 文件"""
     notices = []
     for namespace in os.listdir(BASE_DIR):
@@ -20,4 +20,4 @@ def generate_notice_json():
     print(f"JSON file has been generated at {OUTPUT_FILE}")
 
 if __name__ == "__main__":
-    generate_notice_json()
+    generate_notices_json()

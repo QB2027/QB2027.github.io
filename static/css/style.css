@@ -27,6 +27,17 @@ header .logo img {
     height: 150px;
 }
 
+header .mi {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 1rem;
+}
+
+header .mi img {
+    height: 150px;
+}
+
 header h1 {
     margin: 0;
 }
