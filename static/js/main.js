@@ -1,5 +1,4 @@
 import { loadHtml } from './utils.js';
-import { loadFiles } from './fileManager.js';
 import { loadNotices } from './noticeManager.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -9,7 +8,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // 加载文件下载区域
     await loadHtml('#downloads', 'static/html/fileList.html');
-    loadFiles('data/files.json');
 
     // 加载公告区域
     await loadHtml('#announcements', 'static/html/noticeList.html');
